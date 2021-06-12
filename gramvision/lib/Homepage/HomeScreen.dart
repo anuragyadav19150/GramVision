@@ -173,7 +173,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: IconButton(
                         icon: Icon(Icons.article_outlined),
                         color: Colors.pink,
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => Complaint_File(),
+                            ),
+                          );
+                        },
                         iconSize: 35.0,
                       ),
                     ),
@@ -182,7 +189,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: IconButton(
                         icon: Icon(Icons.pending_outlined),
                         color: Colors.pink,
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => Complaint_Appeal(),
+                            ),
+                          );
+                        },
                         iconSize: 35.0,
                       ),
                     ),
@@ -191,7 +205,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: IconButton(
                         icon: Icon(Icons.gavel_outlined),
                         color: Colors.pink,
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => Complaint_View(),
+                            ),
+                          );
+                        },
                         iconSize: 35.0,
                       ),
                     ),
@@ -200,7 +221,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: IconButton(
                         icon: Icon(Icons.check_circle_outlined),
                         color: Colors.pink,
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => Complaint_Resolved(),
+                            ),
+                          );
+                        },
                         iconSize: 35.0,
                       ),
                     ),
