@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "535068199813",
+    "project_id": "finalgramvision",
+    "storage_bucket": "finalgramvision.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:535068199813:android:d851f1ce4be240498c92ec",
+        "android_client_info": {
+          "package_name": "com.example.gramvision"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "535068199813-re7f518i60tomvo1f219dn9hhcf461u7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.gramvision",
+            "certificate_hash": "21a6923ba02a328f21387007faea30e6ecbd84aa"
+          }
+        },
+        {
+          "client_id": "535068199813-m9ovmqkie9l9lvpuerphbro4st4gvhh0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7syg2ah24LFAaAb8sS7mgiMOV2XmgcgE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "535068199813-m9ovmqkie9l9lvpuerphbro4st4gvhh0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
