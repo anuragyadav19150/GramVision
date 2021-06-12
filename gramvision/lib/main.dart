@@ -5,7 +5,7 @@ import 'package:gramvision/Login/Login.dart';
 import 'package:gramvision/Login/SignUp.dart';
 import 'package:gramvision/Login/Start.dart';
 
-void main() async {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(MyApp());
