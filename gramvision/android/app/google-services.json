@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "535068199813",
+    "firebase_url": "https://finalgramvision-default-rtdb.firebaseio.com",
     "project_id": "finalgramvision",
     "storage_bucket": "finalgramvision.appspot.com"
   },
