@@ -31,7 +31,14 @@ dependencies:
   provider: ^4.3.2+1
   image_picker: ^0.7.5+2
   fluttericon: ^2.0.0
-  firebase_database: ^6.1.2
+  firebase_database: ^7.1.1
+  http: ^0.13.3
+  # geolocator: ^7.1.0
+  intl: ^0.17.0
+  # geocoding: ^2.0.0
+  shared_preferences: ^2.0.6
+  cloud_firestore: 
+  video_player: ^2.1.4
 
 
   # The following adds the Cupertino Icons font to your application.
