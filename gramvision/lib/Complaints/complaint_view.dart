@@ -3,7 +3,7 @@ import 'dart:ffi';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:panchayat/main.dart';
+// import 'package:panchayat/main.dart';
 import 'package:fluttericon/entypo_icons.dart';
 
 class Complaint_View extends StatefulWidget {
@@ -140,7 +140,7 @@ class _Complaint_ViewState extends State<Complaint_View> {
                             Text(
                               lists[index].right["downvotes"],
                             ),
-                            SizedBox(width: 110),
+                            SizedBox(width: 90),
                             FlatButton(
                               child: Text(
                                 resolveTextHolder[

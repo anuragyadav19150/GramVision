@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
 
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:gramvision/Homepage/HomeScreen.dart';
+import 'package:gramvision/Login/database.dart';
+import 'package:gramvision/sharedData/sharedPref.dart';
 
 class Start extends StatefulWidget {
   @override
@@ -25,6 +28,30 @@ class _StartState extends State<Start> {
         final UserCredential user =
             await _auth.signInWithCredential(credential);
 
+        User userDetails = user.user;
+
+        if (user != null) {
+          SharedPreferenceHelper().saveUserEmail(userDetails.email);
+          SharedPreferenceHelper().saveUserId(userDetails.uid);
+          SharedPreferenceHelper()
+              .saveUserName(userDetails.email.replaceAll("@gmail.com", ""));
+          SharedPreferenceHelper().saveDisplayName(userDetails.displayName);
+          SharedPreferenceHelper().saveUserProfileUrl(userDetails.photoURL);
+
+          Map<String, dynamic> userInfoMap = {
+            "email": userDetails.email,
+            "username": userDetails.email.replaceAll("@gmail.com", ""),
+            "name": userDetails.displayName,
+            "imgUrl": userDetails.photoURL
+          };
+
+          DatabaseMethods()
+              .addUserInfoToDB(userDetails.uid, userInfoMap)
+              .then((value) {
+            Navigator.pushReplacement(
+                context, MaterialPageRoute(builder: (context) => HomeScreen()));
+          });
+        }
         await Navigator.pushReplacementNamed(context, "/");
 
         return user;
@@ -35,13 +62,13 @@ class _StartState extends State<Start> {
       throw StateError('Sign in Aborted');
   }
 
-  navigateToLogin() async {
-    Navigator.pushReplacementNamed(context, "Login");
-  }
+  // navigateToLogin() async {
+  //   Navigator.pushReplacementNamed(context, "Login");
+  // }
 
-  navigateToRegister() async {
-    Navigator.pushReplacementNamed(context, "SignUp");
-  }
+  // navigateToRegister() async {
+  //   Navigator.pushReplacementNamed(context, "SignUp");
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -75,42 +102,42 @@ class _StartState extends State<Start> {
                 ])),
             SizedBox(height: 10.0),
             SizedBox(height: 30.0),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                RaisedButton(
-                    padding: EdgeInsets.only(left: 30, right: 30),
-                    onPressed: navigateToLogin,
-                    child: Text(
-                      'LOGIN',
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
-                    ),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
-                    color: Colors.green),
-                SizedBox(width: 20.0),
-                RaisedButton(
-                    padding: EdgeInsets.only(left: 30, right: 30),
-                    onPressed: navigateToRegister,
-                    child: Text(
-                      'REGISTER',
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
-                    ),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
-                    color: Colors.green),
-              ],
-            ),
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.center,
+            //   children: <Widget>[
+            //     RaisedButton(
+            //         padding: EdgeInsets.only(left: 30, right: 30),
+            //         onPressed: navigateToLogin,
+            //         child: Text(
+            //           'LOGIN',
+            //           style: TextStyle(
+            //             fontSize: 20,
+            //             fontWeight: FontWeight.bold,
+            //             color: Colors.white,
+            //           ),
+            //         ),
+            //         shape: RoundedRectangleBorder(
+            //           borderRadius: BorderRadius.circular(10.0),
+            //         ),
+            //         color: Colors.green),
+            //     SizedBox(width: 20.0),
+            //     RaisedButton(
+            //         padding: EdgeInsets.only(left: 30, right: 30),
+            //         onPressed: navigateToRegister,
+            //         child: Text(
+            //           'REGISTER',
+            //           style: TextStyle(
+            //             fontSize: 20,
+            //             fontWeight: FontWeight.bold,
+            //             color: Colors.white,
+            //           ),
+            //         ),
+            //         shape: RoundedRectangleBorder(
+            //           borderRadius: BorderRadius.circular(10.0),
+            //         ),
+            //         color: Colors.green),
+            //   ],
+            // ),
             SizedBox(height: 20.0),
             SignInButton(Buttons.Google,
                 text: "Sign up with Google", onPressed: googleSignIn)

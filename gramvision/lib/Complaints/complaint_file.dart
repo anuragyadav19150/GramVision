@@ -1,6 +1,6 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
-import 'package:panchayat/main.dart';
+// import 'package:panchayat/main.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class Complaint_File extends StatefulWidget {
@@ -87,6 +87,7 @@ class _Complaint_FileState extends State<Complaint_File> {
                     style: TextStyle(fontSize: 16),
                   ),
                   onPressed: () async {
+                    int complaintSize=0;
                     if (!_formKey.currentState.validate()) {
                       return;
                     }

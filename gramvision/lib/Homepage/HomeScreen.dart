@@ -1,7 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:gramvision/Complaints/complaint_appeal.dart';
+import 'package:gramvision/Complaints/complaint_file.dart';
+import 'package:gramvision/Complaints/complaint_resolved.dart';
+import 'package:gramvision/Complaints/complaint_view.dart';
+import 'package:gramvision/Farmer/farming_buy.dart';
+import 'package:gramvision/Farmer/farming_sell.dart';
+import 'package:gramvision/Farmer/readmore.dart';
 import 'package:gramvision/Homepage/Carousel.dart';
 import 'package:gramvision/Homepage/side_drawer.dart';
 import 'package:gramvision/Login/HomePage.dart';
+import 'package:gramvision/Services/avl_jobs.dart';
+import 'package:gramvision/Services/job_apply.dart';
+import 'package:gramvision/Services/new_vacancy.dart';
+import 'package:gramvision/Sidebar/weather.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -80,7 +91,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: IconButton(
                         icon: Icon(Icons.storefront),
                         color: Colors.pink,
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Farming_Sell()),
+                          );
+
+                        },
                         iconSize: 35.0,
                       ),
                     ),
@@ -89,7 +107,13 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: IconButton(
                         icon: Icon(Icons.shopping_cart),
                         color: Colors.pink,
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Farming_Buy()),
+                          );
+                        },
                         iconSize: 35.0,
                       ),
                     ),
@@ -98,7 +122,13 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: IconButton(
                         icon: Icon(Icons.auto_stories),
                         color: Colors.pink,
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Readmore()),
+                          );
+                        },
                         iconSize: 35.0,
                       ),
                     ),
@@ -314,7 +344,28 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: IconButton(
                         icon: Icon(Icons.work_outlined),
                         color: Colors.pink,
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Avl_jobs()),
+                          );
+                        },
+                        iconSize: 35.0,
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(30, 10, 0, 0),
+                      child: IconButton(
+                        icon: Icon(Icons.work_outlined),
+                        color: Colors.pink,
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => New_Vacancy()),
+                          );
+                        },
                         iconSize: 35.0,
                       ),
                     ),
